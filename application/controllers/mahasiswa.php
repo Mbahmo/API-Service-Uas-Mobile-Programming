@@ -26,6 +26,7 @@ class Mahasiswa extends REST_Controller {
    //Mengirim atau menambah data Mahasiswa baru
    function index_post() {
         $data = array(
+                    'NIM'     => $this->post('nim'),
                     'NamaMahasiswa'     => $this->post('namamahasiswa'),
                     'NoTelpMahasiswa'   => $this->post('notelp'));
         $insert = $this->db->insert('Mahasiswa', $data);
@@ -38,6 +39,7 @@ class Mahasiswa extends REST_Controller {
     function index_put() {
         $id = $this->put('nim');
         $data = array(
+                    'NIM'               => $this->put('nimbaru'),
                     'NamaMahasiswa'     => $this->put('namamahasiswa'),
                     'NoTelpMahasiswa'   => $this->put('notelp'));
         $this->db->where('NIM', $id);
